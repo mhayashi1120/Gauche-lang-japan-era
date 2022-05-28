@@ -1,10 +1,10 @@
 /*
- * gauche_date_japan_era.h
+ * gauche_l10n_japan_era.h
  */
 
 /* Prologue */
-#ifndef GAUCHE_GAUCHE_DATE_JAPAN_ERA_H
-#define GAUCHE_GAUCHE_DATE_JAPAN_ERA_H
+#ifndef GAUCHE_GAUCHE_L10N_JAPAN_ERA_H
+#define GAUCHE_GAUCHE_L10N_JAPAN_ERA_H
 
 #include <gauche.h>
 #include <gauche/extend.h>
@@ -16,9 +16,9 @@ SCM_DECL_BEGIN
  * Replace it for your declarations.
  */
 
-extern ScmObj test_gauche_date_japan_era(void);
+extern ScmObj test_gauche_l10n_japan_era(void);
 
 /* Epilogue */
 SCM_DECL_END
 
-#endif  /* GAUCHE_GAUCHE_DATE_JAPAN_ERA_H */
+#endif  /* GAUCHE_GAUCHE_L10N_JAPAN_ERA_H */

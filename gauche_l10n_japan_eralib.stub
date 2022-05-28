@@ -1,0 +1,17 @@
+;;;
+;;; gauche_l10n_japan_eralib.stub
+;;;
+
+(declcode
+ (.include "gauche_l10n_japan_era.h"))
+
+;; The following entry is a dummy one.
+;; Replace it for your definitions.
+
+(define-cproc test-gauche_l10n_japan_era ()
+  (return (test_gauche_l10n_japan_era)))
+
+
+;; Local variables:
+;; mode: scheme
+;; end:
