@@ -4,12 +4,11 @@
 
 (define-gauche-package "Gauche-date-japan-era"
   ;;
-  :version "1.0"
+  :version "0.9.0"
 
   ;; Description of the package.  The first line is used as a short
   ;; summary.
-  :description "Sample package.scm\n\
-                Write your package description here."
+  :description "Get Japanese era from glibc."
 
   ;; List of dependencies.
   ;; Example:
@@ -21,7 +20,7 @@
   ;; NB: This will be recognized >= Gauche 0.9.7.
   ;; Example:
   ;;      :providing-modules (util.algorithm1 util.algorithm1.option)
-  :providing-modules (gauche_date_japan_era)
+  :providing-modules (date.japan.era)
 
   ;; List name and contact info of authors.
   ;; e.g. ("Eva Lu Ator <eval@example.com>"
@@ -35,7 +34,7 @@
 
   ;; List licenses
   ;; e.g. ("BSD")
-  :licenses ()
+  :licenses ("BSD")
 
   ;; Homepage URL, if any.
   ; :homepage "http://example.com/Gauche-date-japan-era/"
