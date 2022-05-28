@@ -1,8 +1,8 @@
 ;;
-;; Package Gauche-date-japan-era
+;; Package Gauche-l10n-japan-era
 ;;
 
-(define-gauche-package "Gauche-date-japan-era"
+(define-gauche-package "Gauche-l10n-japan-era"
   ;;
   :version "0.9.0"
 
@@ -37,8 +37,8 @@
   :licenses ("BSD")
 
   ;; Homepage URL, if any.
-  ; :homepage "http://example.com/Gauche-date-japan-era/"
+  ; :homepage "http://example.com/Gauche-l10n-japan-era/"
 
   ;; Repository URL, e.g. github
-  ; :repository "http://example.com/Gauche-date-japan-era.git"
+  ; :repository "http://example.com/Gauche-l10n-japan-era.git"
   )

@@ -28,7 +28,7 @@ EXEEXT = @EXEEXT@
 LOCAL_PATHS = "@LOCAL_PATHS@"
 
 # Module-specific stuff
-PACKAGE   = Gauche-date-japan-era
+PACKAGE   = Gauche-l10n-japan-era
 
 ARCHFILES = gauche_date_japan_era.$(SOEXT)
 SCMFILES  = $(srcdir)/gauche_date_japan_era.scm

@@ -1,5 +1,5 @@
 #!/usr/bin/env gosh
-;; Configuring Gauche-date-japan-era
+;; Configuring Gauche-l10n-japan-era
 ;; Run ./configure (or gosh ./configure) to generate Makefiles.
 
 (use gauche.configure)
