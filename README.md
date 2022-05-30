@@ -12,3 +12,6 @@ https://kakurasan.blogspot.com/2019/04/glibc-strftime-reiwa-era-support.html
   #?= (sys-localeconv)
 ```
 
+http://manpages.ubuntu.com/manpages/trusty/ja/man7/locale.7.html
+
+strftime にしか影響ないらしいから、別にいいんだろうけど…
