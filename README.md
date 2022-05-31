@@ -1,3 +1,30 @@
+# Gauche-l10n-japan-era
+
+日本の元号への localization (l10n) です。令和から明治までで使っていたのを南北朝時代以降 (1394 年) まで拡張して公開しておきます。
+
+> # locale -a
+
+を実行して ja_JP.utf8 が含まれていない場合は OS の設定が必要かもしれません。
+
+# API (一部)
+
+## date->era (Procedure)
+
+日付を <date> でとり、できうる限り元号への変換を試みます。元号 (string) と 年 (integer) を返します。OS から最新の元号が取得できない場合の元号は、このモジュールで対応している最新の元号 (令和) となります。変換できない場合の戻り値は #f と #f です。
+
+## date->era! (Procedure)
+
+date->era と同じですが、 OS から最新の元号を取得できない場合はエラーになります。
+
+## source-locale-ja (Parameter)
+
+`sys-setlocale` した後、正確に元に戻す方法が見当たらないため用意した parameter です。環境がおかしくなる場合は使用を検討してください。
+
+## その他
+
+省略
+
+# NOTE
 
 https://kakurasan.blogspot.com/2019/04/glibc-strftime-reiwa-era-support.html
 
