@@ -173,14 +173,13 @@
 (define (date->era! date)
   (date->era* date :force-japan-locale? #t))
 
-;; Wrapper `date->era*`
+;; Wrapper `date->era`
 (define (time->era time)
-  ($ date->era* $ time-utc->date time))
+  ($ date->era $ time-utc->date time))
 
-;; Wrapper `date->era*`
+;; Wrapper `date->era!`
 (define (time->era! time)
-  ($ (cut date->era* <> :force-japan-locale? #t)
-     $ time-utc->date time))
+  ($ date->era! $ time-utc->date time))
 
 ;; DATE -> ERA, ERA-YEAR
 (define (date->locale-era date)
