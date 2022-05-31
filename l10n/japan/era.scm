@@ -173,14 +173,6 @@
 (define (date->era! date)
   (date->era* date :force-japan-locale? #t))
 
-;; Wrapper `date->era`
-(define (time->era time)
-  ($ date->era $ time-utc->date time))
-
-;; Wrapper `date->era!`
-(define (time->era! time)
-  ($ date->era! $ time-utc->date time))
-
 ;; DATE -> ERA, ERA-YEAR
 (define (date->locale-era date)
   (let1 tm (date->sys-tm date)
@@ -189,9 +181,6 @@
        (unless (string-japanese? era-string)
          (error "Failed generate Japan era ~a" era-string))
        (values era-string (string->number year-string))])))
-
-(define (time->locale-era time)
-  ($ date->locale-era $ time-utc->date time))
 
 ;; Forcibly change locale via `setlocale` be careful to use in i18n environment.
 (define (date->japan-era! date)
@@ -203,5 +192,20 @@
      (date->locale-era date)
      (sys-setlocale LC_TIME (source-locale-ja)))))
 
+;;
+;; Utility for <time>
+;;
+
+;; Wrapper `date->era`
+(define (time->era time)
+  ($ date->era $ time-utc->date time))
+
+;; Wrapper `date->era!`
+(define (time->era! time)
+  ($ date->era! $ time-utc->date time))
+
 (define (time->japan-era! date)
   ($ date->japan-era! $ time-utc->date time))
+
+(define (time->locale-era time)
+  ($ date->locale-era $ time-utc->date time))
