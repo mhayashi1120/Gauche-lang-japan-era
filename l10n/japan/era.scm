@@ -22,10 +22,10 @@
 (autoload gauche.unicode string->utf8)
 (autoload gauche.uvector u8vector-length)
 
+;; Just check not ascii.
 (define (string-japanese? s)
   (and-let* ([(string? s)]
-             ;; Just check not ascii.
-             ;; TODO should improve to more elegant way
+             ;; FIXME: should improve to more elegant way
              [bytes (u8vector-length (string->utf8 s))]
              [len (string-length s)]
              [(not (= bytes len))])
@@ -184,7 +184,7 @@
 
 ;; Forcibly change locale via `setlocale` be careful to use in i18n environment.
 (define (date->japan-era! date)
-  (let* ([ja-locale "ja_JP.UTF-8"]
+  (let* ([ja-locale "ja_JP.utf8"]
          [new-locale (sys-setlocale LC_TIME ja-locale)])
     (unless (equal? ja-locale new-locale)
       (error "Failed to set new locale" ja-locale))
