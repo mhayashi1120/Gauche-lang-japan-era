@@ -24,7 +24,7 @@ date->era と同じですが、 OS から最新の元号を取得できない場
 
 省略
 
-# NOTE
+# TODO
 
 https://kakurasan.blogspot.com/2019/04/glibc-strftime-reiwa-era-support.html
 
