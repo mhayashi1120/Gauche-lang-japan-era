@@ -121,7 +121,7 @@
 
 ;; Return Era and Year. If not supported Era since too old return #f and #f
 ;; `:fallback-locale?`: If the DATE is the newest era then fallback to use `sys-strftime`
-;; `:try-fallback-locale?`: Same as `:fallback-locale?` but re fallback to this module if failed.
+;; `:try-fallback-locale?`: Same as `:fallback-locale?` but re fallback to this module if failed. (Default)
 ;; `:force-japan-locale?`: Same as `:fallback-locale?` except forcibly `setlocale` to get era.
 (define (date->era* date :key (try-fallback-locale? #t) (fallback-locale? #f) (force-japan-locale? #f))
   (define (yyyyMMdd d)
