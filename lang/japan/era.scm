@@ -1,4 +1,4 @@
-(define-module l10n.japan.era
+(define-module lang.japan.era
   (use srfi-19)
   (use util.match)
   (export
@@ -6,7 +6,7 @@
    time->locale-era time->japan-era!
    time->era time->era!
    date->era* current-era date->era))
-(select-module l10n.japan.era)
+(select-module lang.japan.era)
 
 ;; # Parameter
 ;; Restore back locale as a string. This value used after forcibly change by `sys-setlocale` .

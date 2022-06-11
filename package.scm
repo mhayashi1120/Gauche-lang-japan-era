@@ -1,10 +1,10 @@
 ;;
-;; Package Gauche-l10n-japan-era
+;; Package Gauche-lang-japan-era
 ;;
 
-(define-gauche-package "Gauche-l10n-japan-era"
+(define-gauche-package "Gauche-lang-japan-era"
   ;;
-  :version "0.9.2"
+  :version "0.9.3"
 
   ;; Description of the package.  The first line is used as a short
   ;; summary.
@@ -20,7 +20,7 @@
   ;; NB: This will be recognized >= Gauche 0.9.7.
   ;; Example:
   ;;      :providing-modules (util.algorithm1 util.algorithm1.option)
-  :providing-modules (l10n.japan.era)
+  :providing-modules (lang.japan.era)
 
   ;; List name and contact info of authors.
   ;; e.g. ("Eva Lu Ator <eval@example.com>"
@@ -37,8 +37,8 @@
   :licenses ("BSD")
 
   ;; Homepage URL, if any.
-  ; :homepage "http://example.com/Gauche-l10n-japan-era/"
+  ; :homepage "http://example.com/Gauche-lang-japan-era/"
 
   ;; Repository URL, e.g. github
-  ; :repository "http://example.com/Gauche-l10n-japan-era.git"
+  ; :repository "http://example.com/Gauche-lang-japan-era.git"
   )

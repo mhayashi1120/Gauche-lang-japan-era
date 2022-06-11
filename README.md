@@ -1,4 +1,4 @@
-# Gauche-l10n-japan-era
+# Gauche-lang-japan-era
 
 日本の元号への localization (l10n) です。令和(平成)から明治までの範囲で永らく使っていたのを南北朝時代以降 (1394 年) まで拡張して公開しておきます。
 

@@ -1,13 +1,13 @@
 ;;;
-;;; Test gauche_l10n_japan_era
+;;; Test gauche_lang_japan_era
 ;;;
 
 (use gauche.test)
 (use srfi-19)
 
-(test-start "l10n.japan.era")
-(use l10n.japan.era)
-(test-module 'l10n.japan.era)
+(test-start "lang.japan.era")
+(use lang.japan.era)
+(test-module 'lang.japan.era)
 
 (define (->date s)
   (define (try fmt)
