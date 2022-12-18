@@ -9,10 +9,10 @@
    date->era* current-era date->era))
 (select-module lang.japan.era)
 
-;; # Parameter
-;; Restore back locale as a string. This value used after forcibly change by `sys-setlocale` .
+;; ## Restore back locale as a string. This value used after forcibly change by `sys-setlocale` .
 ;; NOTE and FIXME: `sys-setlocale` seems have no restorable interface.
 ;;  empty string let default settings. `man setlocale(3)`
+;; -> <parameter<string>>
 (define source-locale-ja
   (make-parameter ""))
 
@@ -39,17 +39,18 @@
      $ date->time-utc date))
 
 ;;;
-;;; API
+;;; # API
 ;;;
 
 ;;
 ;; Low level api
 ;;
 
-;; Return Era and Year. If not supported Era since too old return #f and #f
-;; `:fallback-locale?`: If the DATE is the newest era then fallback to use `sys-strftime`
-;; `:try-fallback-locale?`: Same as `:fallback-locale?` but re fallback to this module if failed. (Default)
-;; `:force-japan-locale?`: Same as `:fallback-locale?` except forcibly `setlocale` to get era.
+;; ## Return Era and Year. If not supported Era since too old, return #f and #f
+;; - :fallback-locale? : If the DATE is the newest era then fallback to use `sys-strftime`
+;; - :try-fallback-locale? : Same as `:fallback-locale?` but re fallback to this module if failed. (Default)
+;; - :force-japan-locale? : Same as `:fallback-locale?` except forcibly `setlocale` to get era.
+;; -> [JAPAN-ERA:<string>, ERA-YEAR:<integer>]
 (define (date->era* date :key (try-fallback-locale? #t) (fallback-locale? #f) (force-japan-locale? #f))
   (define (yyyyMMdd d)
     (date->string d "~Y~m~d"))
@@ -89,18 +90,23 @@
           [else
            (values name (compute-year date start))])]))))
 
+;; ## Get Japan Era
+;; -> <string>
 (define (current-era :optional (now (current-date)))
   (date->era now))
 
-;; Wrapper `date->era*`
+;; ## Wrapper `date->era*`
+;; -> <string>
 (define (date->era date)
   (date->era* date))
 
-;; Wrapper `date->era*`
+;; ## Wrapper `date->era*` with hard fail.
+;; -> <string>
 (define (date->era! date)
   (date->era* date :force-japan-locale? #t))
 
-;; DATE -> ERA, ERA-YEAR
+;; ##
+;; <date> -> [JAPAN-ERA:<string>, ERA-YEAR:<integer>]
 (define (date->locale-era date)
   (let1 tm (date->sys-tm date)
     (match ($ (cut string-split <> " ") $ sys-strftime "%EC %Ey" tm)
@@ -109,7 +115,8 @@
          (error "Failed generate Japan era ~a" era-string))
        (values era-string (string->number year-string))])))
 
-;; Forcibly change locale via `setlocale` be careful to use in i18n environment.
+;; ## Forcibly change locale via `setlocale` be careful to use in i18n environment.
+;; -> [JAPAN-ERA:<string>, ERA-YEAR:<integer>]
 (define (date->japan-era! date)
   (let* ([ja-locale "ja_JP.utf8"]
          [new-locale (sys-setlocale LC_TIME ja-locale)])
@@ -123,16 +130,22 @@
 ;; Utility for <time>
 ;;
 
-;; Wrapper `date->era`
+;; ## Wrapper `date->era`
+;; -> <string>
 (define (time->era time)
   ($ date->era $ time-utc->date time))
 
-;; Wrapper `date->era!`
+;; ## Wrapper `date->era!`
+;; -> <string>
 (define (time->era! time)
   ($ date->era! $ time-utc->date time))
 
+;; ##
+;; -> <string>
 (define (time->japan-era! date)
   ($ date->japan-era! $ time-utc->date time))
 
+;; ##
+;; -> <string>
 (define (time->locale-era time)
   ($ date->locale-era $ time-utc->date time))
