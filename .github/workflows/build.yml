@@ -19,6 +19,10 @@ jobs:
       image: practicalscheme/gauche
     steps:
       - uses: actions/checkout@v3
+      - name: Setup environment
+        run: |
+          sed -i -E 's/# (ja_JP.UTF-8)/1/' /etc/locale.gen;
+          locale-gen;
       - name: Setup package
         run: |
       - name: CI
