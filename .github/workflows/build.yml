@@ -24,7 +24,7 @@ jobs:
           apt install -y locales
       - name: Setup environment
         run: |
-          sed -i -E 's/# (ja_JP.UTF-8)/1/' /etc/locale.gen;
+          sed -i -E 's/# (ja_JP.UTF-8)/\\1/' /etc/locale.gen;
           locale-gen;
       - name: CI
         run: ./run-ci.sh

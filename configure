@@ -31,7 +31,7 @@
     (errmsg "Failed initialize locale need ~a\n" locale)
     (errmsg "\n")
     (errmsg "You might need (on Debian):\n"
-    (errmsg "sudo sed -i -E 's/# (ja_JP.UTF-8)/\1/' /etc/locale.gen\n")
+    (errmsg "sudo sed -i -E 's/# (ja_JP.UTF-8)/\\1/' /etc/locale.gen\n")
     (errmsg "sudo locale-gen\n")
     (exit 1))]))
 
