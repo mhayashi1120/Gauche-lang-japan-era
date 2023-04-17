@@ -1,5 +1,7 @@
 # Gauche-lang-japan-era
 
+[![CI](https://github.com/mhayashi1120/Gauche-lang-japan-era/actions/workflows/build.yml/badge.svg)](https://github.com/mhayashi1120/Gauche-lang-japan-era/actions/workflows/build.yml)
+
 日本の元号への localization (l10n) です。令和(平成)から明治までの範囲 (誕生日) で永らく使っていたのを南北朝時代以降 (1394 年) まで拡張して公開しておきます。
 
 > # locale -a
