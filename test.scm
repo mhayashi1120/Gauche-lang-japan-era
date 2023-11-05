@@ -39,6 +39,4 @@
 (test* "" (test-error) (date->japan-era! (->date "1868-01-25")))
 (test* "" (test-error) (date->japan-era! (->date "1868-01-24")))
 
-;; If you don't want `gosh' to exit with nonzero status even if
-;; the test fails, pass #f to :exit-on-failure.
 (test-end :exit-on-failure #t)
