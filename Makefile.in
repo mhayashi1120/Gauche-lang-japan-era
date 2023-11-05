@@ -30,8 +30,8 @@ LOCAL_PATHS = "@LOCAL_PATHS@"
 # Module-specific stuff
 PACKAGE   = Gauche-lang-japan-era
 
-ARCHFILES = 
-SCMFILES  = $(srcdir)/lang/japan/era.scm
+ARCHFILES =
+SCMFILES  = $(srcdir)/lang/japan/era.scm $(srcdir)/lang/japan/era-constants.scm
 HEADERS   =
 
 TARGET    = $(ARCHFILES)
