@@ -14,7 +14,8 @@
 ;;  empty string let default settings. `man setlocale(3)`
 ;; == <parameter <string>>
 (define source-locale-ja
-  (make-parameter ""))
+  (make-parameter ""
+    (^x (assume-type x <string>))))
 
 ;;;
 ;;; Internal
