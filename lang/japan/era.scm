@@ -12,7 +12,7 @@
 ;; ## Restore back locale as a string. This value used after forcibly change by `sys-setlocale` .
 ;; NOTE and FIXME: `sys-setlocale` seems have no restorable interface.
 ;;  empty string let default settings. `man setlocale(3)`
-;; -> <parameter<string>>
+;; == <parameter <string>>
 (define source-locale-ja
   (make-parameter ""))
 
@@ -47,6 +47,7 @@
 ;;
 
 ;; ## Return Era and Year. If not supported Era since too old, return #f and #f
+;; - DATE : <date>
 ;; - :fallback-locale? : If the DATE is the newest era then fallback to use `sys-strftime`
 ;; - :try-fallback-locale? : Same as `:fallback-locale?` but re fallback to this module if failed. (Default)
 ;; - :force-japan-locale? : Same as `:fallback-locale?` except forcibly `setlocale` to get era.
@@ -62,6 +63,8 @@
     (let* ([d0 (yyyyMMdd->date start)]
            [y0 (date-year d0)])
       (+ (- (date-year date) y0) 1)))
+
+  (assume-type date <date>)
 
   (let ([datestr (yyyyMMdd date)])
     (let loop ([eras *japanese-eras*]
@@ -108,6 +111,8 @@
 ;; ##
 ;; <date> -> [JAPAN-ERA:<string>, ERA-YEAR:<integer>]
 (define (date->locale-era date)
+  (assume-type date <date>)
+
   (let1 tm (date->sys-tm date)
     (match ($ (cut string-split <> " ") $ sys-strftime "%EC %Ey" tm)
       [(era-string year-string)
@@ -118,6 +123,8 @@
 ;; ## Forcibly change locale via `setlocale` be careful to use in i18n environment.
 ;; -> [JAPAN-ERA:<string>, ERA-YEAR:<integer>]
 (define (date->japan-era! date)
+  (assume-type date <date>)
+
   (let* ([ja-locale "ja_JP.utf8"]
          [new-locale (sys-setlocale LC_TIME ja-locale)])
     (unless (equal? ja-locale new-locale)
@@ -130,22 +137,24 @@
 ;; Utility for <time>
 ;;
 
-;; ## Wrapper `date->era`
-;; -> <string>
+;; ## Wrapper of [=date->era]()
+;; <time> -> <string>
 (define (time->era time)
+  (assume-type time <time>)
+
   ($ date->era $ time-utc->date time))
 
-;; ## Wrapper `date->era!`
+;; ## Wrapper of [=date->era!]()
 ;; -> <string>
 (define (time->era! time)
   ($ date->era! $ time-utc->date time))
 
-;; ##
-;; -> <string>
-(define (time->japan-era! date)
+;; ## Wrapper of [=date->japan-era!]()
+;; <time> -> <string>
+(define (time->japan-era! time)
   ($ date->japan-era! $ time-utc->date time))
 
-;; ##
-;; -> <string>
+;; ## Wrapper of [=date->japan-era]()
+;; <time> -> <string>
 (define (time->locale-era time)
   ($ date->locale-era $ time-utc->date time))
