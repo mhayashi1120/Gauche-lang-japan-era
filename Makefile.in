@@ -52,7 +52,7 @@ all : $(TARGET)
 
 check : all
 	@rm -f $(TEST_LOG)
-	$(GOSH) -I. -I$(srcdir) $(srcdir)/test.scm > $(TEST_LOG)
+	$(GOSH) -I$(srcdir) $(srcdir)/test.scm > $(TEST_LOG)
 
 install : all
 	$(INSTALL) -m 444 -T $(GAUCHE_PKGINCDIR) $(HEADERS)
@@ -77,4 +77,5 @@ maintainer-clean : clean
 	rm -rf $(CONFIG_GENERATED)  VERSION
 
 validate :
+	@echo "Testing current setup"
 	$(GOSH) $(srcdir)/test.scm >> $(TEST_LOG)

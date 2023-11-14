@@ -4,7 +4,7 @@
 
 (define-gauche-package "Gauche-lang-japan-era"
   ;;
-  :version "0.9.12"
+  :version "0.9.13"
 
   ;; Description of the package.  The first line is used as a short
   ;; summary.
