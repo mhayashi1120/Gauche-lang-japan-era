@@ -5,4 +5,4 @@ set -eu
 export TZ=JST-9
 
 ./configure
-make check
+make check install validate

@@ -73,3 +73,6 @@ distclean : clean
 
 maintainer-clean : clean
 	rm -rf $(CONFIG_GENERATED)  VERSION
+
+validate :
+	$(GOSH) $(srcdir)/test.scm >> $(TEST_LOG)
